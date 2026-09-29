@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  background: #f5f1e8;
+  color: #1c1714;
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  text-align: center;
+  gap: 24px;
+  padding: 20px 20px 0px 20px;
+}
+
+.breadcrumb {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  
+  align-items: center;
+  /* letter-spacing: 0.2em; */
+  /* text-transform: uppercase; */
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chips span {
+  padding: 8px 8px;
+  border: 1px dashed #777;
+  border-radius: 4px;
+  font-size: 10px;
+  line-height: 1.0;
+  text-transform: uppercase;
+}
+
+.hero-middle {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  text-align: center;
+  gap: 24px;
+}
+
+.hero-headline-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  gap: 16px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.0;
+}
+
+.hero h4 {
+  margin: 0;
+  max-width: 1100px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, serif;
+  font-size: clamp(16px);
+  font-weight: 400;
+  line-height: 1.5;
+} 
+
+.hero-desc {
+  margin: 0;
+  max-width: 600px;
+  font-size: 14px;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  padding-top: 32px;
+  border-top: 1px solid #cfc8bb;
+}
+
+.hero-bottom > p:first-child {
+  max-width: 600px;
+  margin: 0;
+
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.location {
+  margin: 0;
+
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}

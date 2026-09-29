@@ -1,0 +1,29 @@
+.page-placeholder {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.page-placeholder-label {
+  margin: 0 0 8px;
+}
+
+.page-placeholder h1 {
+  margin: 0;
+}
+
+.page-placeholder-message {
+  margin: 12px 0 24px;
+}
+
+.page-placeholder-link {
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
