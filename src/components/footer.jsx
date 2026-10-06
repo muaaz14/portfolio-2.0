@@ -10,7 +10,7 @@ function Footer({ activePage, setActivePage }) {
       id: "resume",
       label: "Resume",
       type: "external",
-      url: "#",
+      url: "https://drive.google.com/file/d/12lmTAs_Wd8yClFD5STJn95bm0XPnwJgh/view?usp=sharing",
     },
     {
       id: "linkedin",
