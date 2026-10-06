@@ -286,25 +286,21 @@ form {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.meeting-form-actions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 24px;
-  margin-top: 32px;
-}
-
 .meeting-cancel,
 .meeting-submit {
   border: none;
-  font-size: 14px;
+  font-size: 13px;
   background: none;
   font: inherit;
   cursor: pointer;
 }
 
 .meeting-cancel {
-  opacity: 0.55;
+  opacity: 0.85;
+  color: red;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .meeting-submit {
@@ -315,6 +311,9 @@ form {
   background: #333;
   color: white;
   border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .meeting-submit span {
