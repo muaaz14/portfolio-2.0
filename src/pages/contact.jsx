@@ -81,210 +81,218 @@ function Contact() {
 
 
   return (
-    <section className="contact-page">
-      <div className="contact-content">
-        <p className="contact-eyebrow">HAVE SOMETHING IN MIND?</p>
-        
-        <div className="contact-header-container">
-          <p className="contact-title">Let's take it from</p>
-          <p className='contact-heading'>Idea → Product</p>
-          <p className="contact-description">Got a product to shape, a problem to untangle, or an idea that's ready to become real?</p>
-        </div>
+      <div className="contact-page">
+        <div className="contact-grid">
+          {/* Quadrant 1 */}
+          <div className="contact-quadrant contact-q2">
+            <div className="contact-header-container">
+              <p className="contact-eyebrow">HAVE SOMETHING IN MIND?</p>
+              <p className="contact-title">Let's take it from</p>
+              <p className="contact-heading">Idea → Product</p>
+            </div>
+          </div>
+          
+          {/* Quadrant 2 */}
+          <div className="contact-quadrant contact-q1" />
 
+          {/* Quadrant 3 */}
+          <div className="contact-quadrant contact-q3">
+            <p className="contact-description">
+              Whether you are looking for a candidate, or have an idea, a product to shape, a problem to
+              untangle, or simply want to start a conversation, I'd love
+              to hear from you.
+            </p>
+          </div>
 
-        <div className="contact-options">
-          <a href={`mailto:muaaz1501@gmail.com?subject=${encodeURIComponent("Let's talk about a project")}
-                    &body=${encodeURIComponent(`Hi Muaaz,
+          {/* Quadrant 4 */}
+          <div className="contact-quadrant contact-q4">
 
-                    I came across your portfolio and wanted to get in touch.
+            <p className="contact-talk-title">Let's talk.</p>
 
-                    I'd love to talk about:
+            <a
+              href="mailto:muaaz1501@gmail.com"
+              className="contact-email"
+            >
+              muaaz1501@gmail.com →
+            </a>
 
-                    [Write a few words about your project or opportunity]
+            <Dialog.Root>
+              <Dialog.Trigger asChild>
+                <button
+                  type="button"
+                  className="meeting-trigger"
+                >
+                  Plan a meeting →
+                </button>
+              </Dialog.Trigger>
 
-                    Looking forward to hearing from you!`)}`
-                  }
-              className="contact-email">muaaz1501@gmail.com
-          </a>
+              <Dialog.Portal>
+                <Dialog.Overlay className="meeting-modal-overlay">
+                  <Dialog.Content className="meeting-modal">
+                    <form className="meeting-form" onSubmit={sendMeetingProposal}>
+                        <div className="modal-header">
+                          <p className="modal-title">Propose a Meeting</p>
 
-          {/* <a type="button" className="meeting-trigger" onClick={() => setMeetingOpen(true)}>
-            Suggest a meeting time
-          </a> */}
-
-          <Dialog.Root>
-            <Dialog.Trigger asChild>
-              <button type="button" className="meeting-trigger">
-                Suggest a meeting time
-              </button>
-            </Dialog.Trigger>
-
-            <Dialog.Portal>
-              <Dialog.Overlay className="meeting-modal-overlay">
-                <Dialog.Content className="meeting-modal">
-                  <form className="meeting-form" onSubmit={sendMeetingProposal}>
-                      <div className="modal-header">
-                        <p className="modal-title">Propose a Meeting</p>
-
-                        <Dialog.Close asChild>
-                          <button
-                            type="button"
-                            className="meeting-close"
-                            aria-label="Close meeting form"
-                          >
-                            ×
-                          </button>
-                        </Dialog.Close>
-                      </div>
-
-                      <div className="modal-body">
-                        <div className="heading">
-                          <h2>When would you like to talk?</h2>
-
-                          <p>
-                            Choose a time that works for you. The proposed time
-                            will be sent to me in an email for confirmation.
-                          </p>
+                          <Dialog.Close asChild>
+                            <button
+                              type="button"
+                              className="meeting-close"
+                              aria-label="Close meeting form"
+                            >
+                              ×
+                            </button>
+                          </Dialog.Close>
                         </div>
 
-                        <div className="meeting-fields">
-                          <div className="meeting-row">
-                            <label>
-                              <span>Your name</span>
+                        <div className="modal-body">
+                          <div className="heading">
+                            <h2>When would you like to talk?</h2>
 
-                              <input
-                                type="text"
-                                value={visitorName}
-                                onChange={(event) =>
-                                  setVisitorName(event.target.value)
-                                }
-                                placeholder="Enter your name..."
-                                required
-                              />
-                            </label>
-
-                            <label>
-                              <span>Email address</span>
-
-                              <input
-                                type="email"
-                                value={visitorEmail}
-                                onChange={(event) =>
-                                  setVisitorEmail(event.target.value)
-                                }
-                                placeholder="Enter your email..."
-                                required
-                              />
-                            </label>
-                          </div>  
-                          
-                          <div className="meeting-row">
-                            <label>
-                              <span>Date</span>
-                              <input
-                                type="date"
-                                value={meetingDate}
-                                min={new Date().toISOString().split("T")[0]}
-                                onChange={(event) =>
-                                  setMeetingDate(event.target.value)
-                                }
-                                required
-                              />
-                            </label>
-
-                            <label>
-                              <span>Time</span>
-                              <input
-                                type="time"
-                                value={meetingTime}
-                                  min={
-                                  meetingDate === new Date().toISOString().split("T")[0]
-                                    ? new Date().toTimeString().slice(0, 5)
-                                    : undefined
-                                }
-                                onChange={(event) =>
-                                  setMeetingTime(event.target.value)
-                                }
-                                required
-                              />
-                            </label>
-
+                            <p>
+                              Choose a time that works for you. The proposed time
+                              will be sent to me in an email for confirmation.
+                            </p>
                           </div>
 
-                          <label>
-                            <span>Duration</span>
+                          <div className="meeting-fields">
+                            <div className="meeting-row">
+                              <label>
+                                <span>Your name</span>
 
-                            <Select.Root
-                              value={meetingDuration}
-                              onValueChange={setMeetingDuration}
-                            >
-                              <Select.Trigger className="meeting-select">
-                                <Select.Value />
-                                <Select.Icon />
-                              </Select.Trigger>
+                                <input
+                                  type="text"
+                                  value={visitorName}
+                                  onChange={(event) =>
+                                    setVisitorName(event.target.value)
+                                  }
+                                  placeholder="Enter your name..."
+                                  required
+                                />
+                              </label>
 
-                              <Select.Portal>
-                                <Select.Content className="meeting-select-content">
-                                  <Select.Viewport>
-                                    <Select.Item value="15" className="meeting-select-item">
-                                      <Select.ItemText>15 minutes</Select.ItemText>
-                                    </Select.Item>
+                              <label>
+                                <span>Email address</span>
 
-                                    <Select.Item value="30" className="meeting-select-item">
-                                      <Select.ItemText>30 minutes</Select.ItemText>
-                                    </Select.Item>
+                                <input
+                                  type="email"
+                                  value={visitorEmail}
+                                  onChange={(event) =>
+                                    setVisitorEmail(event.target.value)
+                                  }
+                                  placeholder="Enter your email..."
+                                  required
+                                />
+                              </label>
+                            </div>  
+                            
+                            <div className="meeting-row">
+                              <label>
+                                <span>Date</span>
+                                <input
+                                  type="date"
+                                  value={meetingDate}
+                                  min={new Date().toISOString().split("T")[0]}
+                                  onChange={(event) =>
+                                    setMeetingDate(event.target.value)
+                                  }
+                                  required
+                                />
+                              </label>
 
-                                    <Select.Item value="45" className="meeting-select-item">
-                                      <Select.ItemText>45 minutes</Select.ItemText>
-                                    </Select.Item>
+                              <label>
+                                <span>Time</span>
+                                <input
+                                  type="time"
+                                  value={meetingTime}
+                                    min={
+                                    meetingDate === new Date().toISOString().split("T")[0]
+                                      ? new Date().toTimeString().slice(0, 5)
+                                      : undefined
+                                  }
+                                  onChange={(event) =>
+                                    setMeetingTime(event.target.value)
+                                  }
+                                  required
+                                />
+                              </label>
 
-                                    <Select.Item value="60" className="meeting-select-item">
-                                      <Select.ItemText>1 hour</Select.ItemText>
-                                    </Select.Item>
-                                  </Select.Viewport>
-                                </Select.Content>
-                              </Select.Portal>
-                            </Select.Root>
-                          </label>
+                            </div>
 
-                          <label>
-                            <span>Anything you'd like to discuss?</span>
-                            <textarea
-                              value={meetingMessage}
-                              onChange={(event) => setMeetingMessage(event.target.value)}
-                              placeholder="Tell me a little about what you'd like to talk about..."
-                              rows="4"
-                            />
-                          </label>
+                            <label>
+                              <span>Duration</span>
+
+                              <Select.Root
+                                value={meetingDuration}
+                                onValueChange={setMeetingDuration}
+                              >
+                                <Select.Trigger className="meeting-select">
+                                  <Select.Value />
+                                  <Select.Icon />
+                                </Select.Trigger>
+
+                                <Select.Portal>
+                                  <Select.Content className="meeting-select-content">
+                                    <Select.Viewport>
+                                      <Select.Item value="15" className="meeting-select-item">
+                                        <Select.ItemText>15 minutes</Select.ItemText>
+                                      </Select.Item>
+
+                                      <Select.Item value="30" className="meeting-select-item">
+                                        <Select.ItemText>30 minutes</Select.ItemText>
+                                      </Select.Item>
+
+                                      <Select.Item value="45" className="meeting-select-item">
+                                        <Select.ItemText>45 minutes</Select.ItemText>
+                                      </Select.Item>
+
+                                      <Select.Item value="60" className="meeting-select-item">
+                                        <Select.ItemText>1 hour</Select.ItemText>
+                                      </Select.Item>
+                                    </Select.Viewport>
+                                  </Select.Content>
+                                </Select.Portal>
+                              </Select.Root>
+                            </label>
+
+                            <label>
+                              <span>Anything you'd like to discuss?</span>
+                              <textarea
+                                value={meetingMessage}
+                                onChange={(event) => setMeetingMessage(event.target.value)}
+                                placeholder="Tell me a little about what you'd like to talk about..."
+                                rows="4"
+                              />
+                            </label>
+                          </div>
+
+                          <p className="meeting-timezone">Times are proposed in Europe/Stockholm time.</p>
                         </div>
 
-                        <p className="meeting-timezone">Times are proposed in Europe/Stockholm time.</p>
-                      </div>
+                        <div className="modal-footer">
+                          <Dialog.Close asChild>
+                            <button
+                              type="button"
+                              className="meeting-cancel"
+                            >
+                              Cancel
+                            </button>
+                          </Dialog.Close>
 
-                      <div className="modal-footer">
-                        <Dialog.Close asChild>
                           <button
-                            type="button"
-                            className="meeting-cancel"
+                            type="submit"
+                            className="meeting-submit"
                           >
-                            Cancel
+                            Send proposal
                           </button>
-                        </Dialog.Close>
-
-                        <button
-                          type="submit"
-                          className="meeting-submit"
-                        >
-                          Send proposal
-                        </button>
-                      </div>
-                  </form>
-                </Dialog.Content>
-              </Dialog.Overlay>
-            </Dialog.Portal>
-          </Dialog.Root>
+                        </div>
+                    </form>
+                  </Dialog.Content>
+                </Dialog.Overlay>
+              </Dialog.Portal>
+            </Dialog.Root>
+          </div>
         </div>
       </div>
-    </section>
   );
 }
 

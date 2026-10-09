@@ -1,37 +1,29 @@
-import './App.css'
+import { useState } from "react";
+
+import Header from "./components/header";
+import Footer from "./components/footer";
+import PageContent from "./components/page-content";
+
+import "./App.css";
 
 function App() {
+  const [playgroundOpen, setPlaygroundOpen] = useState(false);
+  const [mode, setMode] = useState("design");
+  const [activePage, setActivePage] = useState("home");
+
   return (
-    <main>
-      <section className="hero">
-        <div className="hero-top">
-          <p className="breadcrumb">Muaaz / 2026 / Product Designer + Engineer</p>
-        </div>
+    <main className="page">
 
+      <section className="main">
+        <Header activePage={activePage} setActivePage={setActivePage} />
 
-        <div className="hero-middle">
-          {/* <div className="chips">
-            <span>PRODUCT DESIGN</span>
-            <span>UX / UI</span>
-            <span>BUILDING WITH CODE</span>
-          </div> */}
-          <div class="hero-headline-text">
-            {/* <p class="hero-desc">Somewhere between</p> */}
-            {/* <h1>I'm found working all the way from  <span style={{ fontWeight: '500' }}>Ideas → Production</span></h1> */}
-            <h1>I engineer & design, right from <br/> <span style={{ fontWeight: '500', lineHeight: '1.7' }}>Ideas → Production</span></h1>
-            {/* <p class="hero-desc">is where I am found working.</p> */}
-          </div>
-          <p className="hero-desc">I'm Muaaz; a product designer who likes getting close to the actual product. I design the experience, understand the system behind it, and increasingly, sometimes build the thing itself.</p>
-        </div>
-        
+        <PageContent activePage={activePage}/>
 
-        <div className="hero-bottom">
-            
-            <p className="location">KARLSTAD, SWEDEN</p>
-        </div>
+        <Footer activePage={activePage} setActivePage={setActivePage} />
       </section>
+
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
