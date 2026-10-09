@@ -1,0 +1,622 @@
+
+* {
+  box-sizing: border-box;
+}
+
+/*=====================================================================*/
+/* About page layout and vertical section indicator */
+/*=====================================================================*/
+
+.about-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Vertical indicator rail */
+.section-indicator {
+  width: 10px;
+  min-width: 4px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px;
+  align-self: stretch;
+}
+
+/* Six equally sized segments */
+.section-indicator-segment {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  border-radius: 0px;
+  background: var(--text-primary, #202020);
+  opacity: 0.12;
+
+  transition:
+    opacity 250ms ease,
+    background-color 250ms ease;
+}
+
+/* Active section */
+.section-indicator-segment.active {
+  opacity: 1;
+}
+
+/* Scrollable content */
+.about-page {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary, #202020);
+  background: var(--background, transparent);
+
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  gap: 120px;
+  align-items: center;
+  
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  overscroll-behavior-y: contain;
+}
+
+.about-page > section {
+  min-height: calc(100vh - 100px);
+  flex-shrink: 0;
+  scroll-margin-top: 24px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+
+  align-self: center;
+  justify-content: center;
+}
+
+.section-indicator-segment {
+  transition: opacity 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/*=====================================================================*/
+/* About Section */
+/*=====================================================================*/
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 75%;
+}
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 550;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.about-heading {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.045em;
+  color: #1c1714;
+  margin: 12px 0;
+}
+
+.intro-copy {
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.8;
+  font-size: 14px;
+  margin: 12px 0;
+  width: 75%;
+  align-items: center;
+}
+
+.intro-hidden {
+  gap: 12px;
+  flex-direction: column;
+  line-height: 1.8;
+  font-size: 14px;
+  margin: 12px 0;
+  width: 100%;
+  align-items: center;
+}
+
+.intro-hidden[hidden],
+.intro-toggle[hidden] {
+  display: none !important;
+}
+
+.intro-hidden:not([hidden]) {
+  display: flex;
+  align-items: center;
+}
+
+.intro-copy p {
+  margin-top: 12px;
+}
+
+.intro-toggle {
+  width: fit-content;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 180ms ease;
+}
+
+.intro-toggle:hover {
+  opacity: 1;
+}
+
+.intro-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/*=====================================================================*/
+/* Approach Section */
+/*=====================================================================*/
+
+.approach {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  gap: 48px;
+  width: 100%;
+  align-items: center;
+}
+
+.approach-heading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  max-width: 80%;
+}
+
+.approach-heading {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.045em;
+  color: #1c1714;
+  margin: 12px 0;
+}
+
+.approach-copy {
+  line-height: 1.8;
+  font-size: 14px;
+  margin-top: 12px;
+  max-width: 75%;
+}
+
+.approach-cards-container {
+  max-width: 90%;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.approach-cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+.approach-card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: 360px;
+  padding: 20px;
+  gap: 12px;
+  align-items: flex-start;
+  text-align: left;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.approach-card:hover {
+  background-color: #ebe5d8;
+}
+
+.approach-card h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 550;
+}
+
+.approach-card p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.approach-card span {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/*=====================================================================*/
+/* Skills plane */
+/*=====================================================================*/
+
+.skills-section {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+.skills-heading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 80%;
+}
+
+.skills-heading {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.045em;
+  color: #1c1714;
+  margin: 12px 0;
+}
+
+.skills-copy {
+  line-height: 1.8;
+  font-size: 14px;
+  margin-top: 12px;
+  width: 75%;
+}
+
+.skills-plane-wrapper {
+  width: 80%;
+}
+
+.about-plane {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.3 / 1;
+  overflow: visible;
+  border: 1px solid var(--border-color, rgba(128, 128, 128, 0.2));
+  border-radius: 12px;
+  background-image: radial-gradient(
+    circle,
+    rgba(128, 128, 128, 0.23) 1px,
+    transparent 1.2px
+  );
+  background-size: 22px 22px;
+}
+
+/* X and Y axes */
+
+.plane-axis {
+  position: absolute;
+  z-index: 0;
+  background: var(--border-color, rgba(128, 128, 128, 0.2));
+}
+
+.plane-axis-x {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.plane-axis-y {
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+}
+
+/* Quadrant labels */
+
+.plane-quadrant-label {
+  position: absolute;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.label-q1 {
+  top: 14px;
+  left: 16px;
+}
+
+.label-q2 {
+  top: 14px;
+  right: 16px;
+}
+
+.label-q3 {
+  right: 16px;
+  bottom: 14px;
+}
+
+.label-q4 {
+  bottom: 14px;
+  left: 16px;
+}
+
+/* Skill dots */
+
+.plane-skill {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--background, #fff);
+  border-radius: 50%;
+  background: var(--text-primary, #202020);
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.plane-skill:hover,
+.plane-skill:focus-visible {
+  z-index: 10;
+  transform: translate(-50%, -50%) scale(1.6);
+  outline: none;
+  background: #6b83ff;
+}
+
+.plane-skill:focus-visible {
+  box-shadow: 0 0 0 3px rgba(107, 131, 255, 0.3);
+}
+
+/* Tooltip */
+
+.plane-skill-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  z-index: 20;
+  width: max-content;
+  max-width: 180px;
+  padding: 8px 11px;
+  transform: translate(-50%, 4px);
+  border: 1px solid var(--border-color, rgba(128, 128, 128, 0.2));
+  border-radius: 6px;
+  background: var(--tooltip-background, #202020);
+  color: var(--tooltip-text, #fff);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease,
+    visibility 150ms ease;
+}
+
+.plane-skill:hover .plane-skill-tooltip,
+.plane-skill:focus-visible .plane-skill-tooltip {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Center marker */
+
+.plane-center-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 5px;
+  height: 5px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #6b83ff;
+  pointer-events: none;
+}
+
+.about-plane-caption {
+  max-width: 480px;
+  margin: 24px auto 0;
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+  opacity: 0.6;
+}
+
+/*=====================================================================*/
+/* AI */
+/*=====================================================================*/
+
+.ai {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.ai-heading {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.045em;
+  color: #1c1714;
+  margin: 12px 0;
+}
+
+.ai-copy {
+  line-height: 2.2;
+  font-size: 14px;
+  margin-top: 12px;
+  width: 75%;
+}
+
+.ai-copy span {
+  font-weight: 600;
+}
+
+/*=====================================================================*/
+/* Drive */
+/*=====================================================================*/
+
+.drive {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.drive-heading {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.045em;
+  color: #1c1714;
+  margin: 12px 0;
+}
+
+.drive-copy {
+  line-height: 1.8;
+  font-size: 14px;
+  width: 75%;
+}
+
+/*=====================================================================*/
+/* Contact */
+/*=====================================================================*/
+
+.contact {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact h2 {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.045em;
+  color: #1c1714;
+  margin: 12px 0;
+}
+
+.contact-copy {
+  line-height: 1.8;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.email-link {
+  font-size: 14px;
+  color: #1c1714;
+  text-decoration: underline;
+}
+
+/*=====================================================================*/
+/* Responsive layout */
+/*=====================================================================*/
+
+@media (max-width: 700px) {
+  .section-indicator {
+    width: 4px;
+    min-width: 4px;
+    gap: 4px;
+    padding: 20px 0;
+  }
+
+  .about-page {
+    padding: 20px 16px;
+    gap: 88px;
+  }
+
+  .intro {
+    max-width: 100%;
+  }
+
+  .intro-copy {
+    width: 100%;
+  }
+
+  .approach-heading-container,
+  .skills-heading-container {
+    max-width: 100%;
+  }
+
+  .approach-copy,
+  .skills-copy,
+  .ai-copy,
+  .drive-copy {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .approach-cards-container {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .approach-card {
+    width: min(320px, 85vw);
+  }
+
+  .skills-plane-wrapper {
+    width: 100%;
+  }
+
+  .ai,
+  .drive {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-indicator-segment,
+  .plane-skill,
+  .plane-skill-tooltip {
+    transition: none;
+  }
+}
