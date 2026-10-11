@@ -93,7 +93,7 @@
 .availability {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 /* .availability-dot {
@@ -105,8 +105,8 @@
 } */
 
 .availability-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   background-color: #22c55e;
   border-radius: 50%;
   display: inline-block;
@@ -116,7 +116,7 @@
 .availability-dot::after {
   content: "";
   position: absolute;
-  inset: -3px;
+  inset: -4px;
   border: 1px solid #22c55e;
   border-radius: 50%;
   animation: availability-pulse 1.8s ease-out infinite;

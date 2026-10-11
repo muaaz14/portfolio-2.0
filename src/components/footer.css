@@ -1,63 +1,167 @@
+
 .footer {
   display: flex;
   margin: 0;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 16px;
   border-top: 1px solid #d8d2c7;
+
   font-size: 12px;
-  line-height: 1.0;
+  line-height: 1;
   letter-spacing: 0.05em;
 }
 
+/* Footer links layout */
 .footer-links {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
-.footer-links button {
-  background: none;
+/* Wrapper for each link and its optional badge */
+.footer-link-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+/* Reserve horizontal space only when a badge exists */
+.footer-link-item.has-badge {
+  padding-right: 66px;
+}
+
+/* Shared link styles */
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+
   border: none;
+  background: none;
   padding: 0;
   margin: 0;
-  font-size: 12px;
-  line-height: 1.0;
-  letter-spacing: 0.05em;
-  color: #1c1714;
-  cursor: pointer;
-  transition: color 180ms ease;
-}
 
-.footer-links button:hover {
-  color: #6e675e;
-  text-decoration: underline;
-}
-
-.footer-links a {
-  text-decoration: none;
-  color: #1c1714;
-  transition: color 180ms ease;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-  cursor: pointer;
-  color: #6e675e;
-  line-height: 1.0;
-}
-
-.footer-link {
-  border: none;
-  background: none;
-  padding: 0;
   font: inherit;
-  color: inherit;
+  line-height: 1;
+  color: #1c1714;
   text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
+
+  transition: color 180ms ease;
 }
 
+/* Link label */
+.footer-link-label {
+  text-decoration: none;
+  text-underline-offset: 3px;
+  transition: color 180ms ease;
+}
+
+/* Underline only the text when the actual link is hovered */
+.footer-link:hover .footer-link-label {
+  color: #6e675e;
+  text-decoration: underline;
+}
+
+/* External links */
+.footer-links a {
+  color: #1c1714;
+  text-decoration: none;
+}
+
+/* Internal buttons */
+.footer-links button {
+  color: #1c1714;
+}
+
+/* Active link */
 .footer-link.active {
-  /* text-decoration: underline; */
   font-weight: 700;
-  letter-spacing: 0em;
+  letter-spacing: 0;
+}
+
+/* Footer location */
+.footer-location {
+  white-space: nowrap;
+}
+
+/* Coming Soon badge */
+.coming-soon-badge {
+  position: absolute;
+  top: -7px;
+  right: 0;
+  z-index: 5;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px;
+  border-radius: 4px;
+  overflow: hidden;
+
+  background: #000;
+  color: #fff;
+
+  font-size: 6px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 1px;
+  white-space: nowrap;
+
+  isolation: isolate;
+  cursor: default;
+}
+
+/* Badge text */
+.coming-soon-badge > span {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Animated shimmer */
+.coming-soon-badge::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: -50% auto -50% -60%;
+  width: 45%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.65),
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  animation: coming-soon-shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes coming-soon-shimmer {
+  0% {
+    left: -60%;
+  }
+
+  45%,
+  100% {
+    left: 130%;
+  }
+}
+
+/* Reduced-motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .coming-soon-badge::before {
+    animation: none;
+    display: none;
+  }
 }
