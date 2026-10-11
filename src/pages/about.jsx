@@ -1,4 +1,3 @@
-
 import { useRef, useEffect, useState } from "react";
 import { skillsData } from "./data/skills-data";
 import "./about.css";
@@ -201,244 +200,243 @@ export default function About() {
 
       {/* Scrollable About page */}
       <div className="about-page" ref={aboutPageRef}>
-        <section className="intro" data-section>
-          <p className="eyebrow">About</p>
+          <section className={`intro ${activeSection === 0 ? "section-active" : ""}`} data-section>
+            <p className="eyebrow">About</p>
 
-          <h2 className="about-heading">
-            Designing with purpose.
-            <br />
-            Building with intention.
-          </h2>
+            <h2 className="about-heading">
+              Designing with purpose.
+              <br />
+              Building with intention.
+            </h2>
 
-          <div className="intro-copy">
-            <p>
-              I'm Muaaz, a designer who enjoys working at the
-              intersection of people, design, and technology. I
-              care about understanding the problem before jumping
-              into the solution.
-            </p>
-
-            <p>
-              For me, good design isn't just about how something
-              looks. It's about how it works, how it feels, and
-              whether it makes someone's life a little easier.
-            </p>
-
-            <button
-              type="button"
-              className="intro-toggle"
-              onClick={() => setIsIntroExpanded(true)}
-              hidden={isIntroExpanded}
-            >
-              read more...
-            </button>
-
-            <div
-              className="intro-hidden"
-              hidden={!isIntroExpanded}
-            >
+            <div className="intro-copy">
               <p>
-                I’ve always been curious about how things work —
-                not just technically, but emotionally. Why
-                something feels intuitive. Why certain experiences
-                stay with us.
+                I'm Muaaz, a designer who enjoys working at the
+                intersection of people, design, and technology. I
+                care about understanding the problem before jumping
+                into the solution.
               </p>
 
               <p>
-                For me, design isn’t decoration. It’s intention
-                made visible.
-                <br />
-                I see design as the responsibility of shaping how
-                someone feels when they interact with something.
-                It’s imagining the best possible experience — and
-                then refining it, rebuilding it, and questioning
-                it until it feels effortless.
-              </p>
-
-              <p>
-                My journey into UX wasn’t linear. It was shaped by
-                curiosity, movement, and a constant desire to
-                understand people better. Over time, I realized I
-                was always drawn to solving problems through
-                creativity — where structure meets empathy, and
-                systems meet storytelling.
-              </p>
-
-              <p>
-                Today, I work as a UX Designer, growing from a
-                Graduate Trainee into a full-time role, designing
-                scalable systems and thoughtful experiences.
-                Beyond work, I thrive on meaningful conversations,
-                collaboration, and communities that challenge me
-                to think deeper.
-              </p>
-
-              <p>
-                I also carry a quiet love for front-end development
-                — it helps me design with feasibility, edge cases,
-                and developer experience in mind. Because design
-                doesn’t end in Figma. It lives in implementation.
-              </p>
-
-              <p>
-                At my core, I’m driven by growth — through
-                uncertainty, ambiguity, and the stretch of learning
-                something new.
-              </p>
-
-              <p>
-                I don’t just want to make things look better. I
-                want to make them work better — for people.
+                For me, good design isn't just about how something
+                looks. It's about how it works, how it feels, and
+                whether it makes someone's life a little easier.
               </p>
 
               <button
                 type="button"
                 className="intro-toggle"
-                onClick={() => setIsIntroExpanded(false)}
+                onClick={() => setIsIntroExpanded(true)}
+                hidden={isIntroExpanded}
               >
-                read less...
+                read more...
               </button>
+
+              <div
+                className="intro-hidden"
+                hidden={!isIntroExpanded}
+              >
+                <p>
+                  I’ve always been curious about how things work —
+                  not just technically, but emotionally. Why
+                  something feels intuitive. Why certain experiences
+                  stay with us.
+                </p>
+
+                <p>
+                  For me, design isn’t decoration. It’s intention
+                  made visible.
+                  <br />
+                  I see design as the responsibility of shaping how
+                  someone feels when they interact with something.
+                  It’s imagining the best possible experience — and
+                  then refining it, rebuilding it, and questioning
+                  it until it feels effortless.
+                </p>
+
+                <p>
+                  My journey into UX wasn’t linear. It was shaped by
+                  curiosity, movement, and a constant desire to
+                  understand people better. Over time, I realized I
+                  was always drawn to solving problems through
+                  creativity — where structure meets empathy, and
+                  systems meet storytelling.
+                </p>
+
+                <p>
+                  Today, I work as a UX Designer, growing from a
+                  Graduate Trainee into a full-time role, designing
+                  scalable systems and thoughtful experiences.
+                  Beyond work, I thrive on meaningful conversations,
+                  collaboration, and communities that challenge me
+                  to think deeper.
+                </p>
+
+                <p>
+                  I also carry a quiet love for front-end development
+                  — it helps me design with feasibility, edge cases,
+                  and developer experience in mind. Because design
+                  doesn’t end in Figma. It lives in implementation.
+                </p>
+
+                <p>
+                  At my core, I’m driven by growth — through
+                  uncertainty, ambiguity, and the stretch of learning
+                  something new.
+                </p>
+
+                <p>
+                  I don’t just want to make things look better. I
+                  want to make them work better — for people.
+                </p>
+
+                <button
+                  type="button"
+                  className="intro-toggle"
+                  onClick={() => setIsIntroExpanded(false)}
+                >
+                  read less...
+                </button>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="approach" data-section>
-          <div className="approach-heading-container">
-            <p className="eyebrow">MY APPROACH</p>
+          <section className={`approach ${activeSection === 1 ? "section-active" : ""}`} data-section>
+            <div className="approach-heading-container">
+              <p className="eyebrow">MY APPROACH</p>
 
-            <h2 className="approach-heading">
-              From understanding to implementation.
-            </h2>
+              <h2 className="approach-heading">
+                From understanding to implementation.
+              </h2>
 
-            <p className="approach-copy">
-              I like to move between understanding people,
-              exploring ideas, shaping interfaces, and bringing
-              those ideas to life. I don't see design and
-              development as separate worlds; I see them as parts
-              of the same process.
-            </p>
-          </div>
-
-          <div
-            className="approach-cards-container"
-            ref={cardsContainerRef}
-          >
-            <article className="approach-card">
-              <span className="about-step-number">01</span>
-              <h3>Understand</h3>
-              <p>
-                Ask questions, research the context, and understand
-                the people behind the problem.
+              <p className="approach-copy">
+                I like to move between understanding people,
+                exploring ideas, shaping interfaces, and bringing
+                those ideas to life. I don't see design and
+                development as separate worlds; I see them as parts
+                of the same process.
               </p>
-            </article>
+            </div>
 
-            <article className="approach-card">
-              <span className="about-step-number">02</span>
-              <h3>Explore</h3>
-              <p>
-                Challenge assumptions, explore alternatives, and
-                turn early ideas into something tangible.
+            <div
+              className="approach-cards-container"
+              ref={cardsContainerRef}
+            >
+              <article className="approach-card">
+                <span className="about-step-number">01</span>
+                <h3>Understand</h3>
+                <p>
+                  Ask questions, research the context, and understand
+                  the people behind the problem.
+                </p>
+              </article>
+
+              <article className="approach-card">
+                <span className="about-step-number">02</span>
+                <h3>Explore</h3>
+                <p>
+                  Challenge assumptions, explore alternatives, and
+                  turn early ideas into something tangible.
+                </p>
+              </article>
+
+              <article className="approach-card">
+                <span className="about-step-number">03</span>
+                <h3>Design</h3>
+                <p>
+                  Create clear, considered experiences that balance
+                  user needs and product goals.
+                </p>
+              </article>
+
+              <article className="approach-card">
+                <span className="about-step-number">04</span>
+                <h3>Implement</h3>
+                <p>
+                  Work towards a real solution, collaborating across
+                  design and development along the way.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section className={`skills-section ${activeSection === 2 ? "section-active" : ""}`} data-section>
+            <div className="skills-heading-container">
+              <p className="eyebrow">MY TOOLKIT</p>
+
+              <h2 className="skills-heading">
+                How I implement these ideas.
+              </h2>
+
+              <p className="skills-copy">
+                Every problem calls for a different approach. These
+                are some of the tools, techniques, and technologies
+                I draw on throughout the process. Their positions
+                reflect how I connect different parts of my practice.
               </p>
-            </article>
+            </div>
 
-            <article className="approach-card">
-              <span className="about-step-number">03</span>
-              <h3>Design</h3>
-              <p>
-                Create clear, considered experiences that balance
-                user needs and product goals.
-              </p>
-            </article>
+            <SkillsPlane />
+          </section>
 
-            <article className="approach-card">
-              <span className="about-step-number">04</span>
-              <h3>Implement</h3>
-              <p>
-                Work towards a real solution, collaborating across
-                design and development along the way.
-              </p>
-            </article>
-          </div>
-        </section>
+          <section className={`ai ${activeSection === 3 ? "section-active" : ""}`} data-section>
+            <p className="eyebrow">THOUGHTS</p>
 
-        <section className="skills-section" data-section>
-          <div className="skills-heading-container">
-            <p className="eyebrow">MY TOOLKIT</p>
+            <h2 className="ai-heading">My Take on AI in UX</h2>
 
-            <h2 className="skills-heading">
-              How I implement these ideas.
-            </h2>
-
-            <p className="skills-copy">
-              Every problem calls for a different approach. These
-              are some of the tools, techniques, and technologies
-              I draw on throughout the process. Their positions
-              reflect how I connect different parts of my practice.
-            </p>
-          </div>
-
-          <SkillsPlane />
-        </section>
-
-        <section className="ai" data-section>
-          <p className="eyebrow">THOUGHTS</p>
-
-          <h2 className="ai-heading">My Take on AI in UX</h2>
-
-          <p className="ai-copy">
-            AI isn’t here to replace designers.
-            <br />
-            It’s here to remove repetitive execution.
-            <br />
-            We won’t build every screen from scratch anymore.
-            <br />
-            We’ll define patterns, rules, and behaviors; and let
-            systems do the heavy lifting.
-            <br />
-            To me, the future of UX lies at the intersection of:
-            <br />
-            <span>
-              AI × Design Systems = Clear Thinking.
+            <p className="ai-copy">
+              AI isn’t here to replace designers.
               <br />
-            </span>
-            The better we scope, the better AI executes.
-          </p>
-        </section>
+              It’s here to remove repetitive execution.
+              <br />
+              We won’t build every screen from scratch anymore.
+              <br />
+              We’ll define patterns, rules, and behaviors; and let
+              systems do the heavy lifting.
+              <br />
+              To me, the picture is clear:
+              <br />
+              <span>AI</span> ×  <span>Design Systems</span> x <span>Clear Thinking</span> = <span>The Future</span>.
+                <br />
+              
+              The better we scope, the better AI executes.
+            </p>
+          </section>
 
-        <section className="drive" data-section>
-          <p className="eyebrow">WHAT DRIVES ME</p>
+          <section className={`drive ${activeSection === 4 ? "section-active" : ""}`} data-section>
+            <p className="eyebrow">WHAT DRIVES ME</p>
 
-          <h2 className="drive-heading">
-            Make it useful.
-            <br />
-            Make it thoughtful.
-            <br />
-            Make it human.
-          </h2>
+            <h2 className="drive-heading">
+              Make it useful.
+              <br />
+              Make it thoughtful.
+              <br />
+              Make it human.
+            </h2>
 
-          <p className="drive-copy">
-            I'm always interested in meaningful problems,
-            thoughtful people, and opportunities to turn good ideas
-            into things that work in the real world.
-          </p>
-        </section>
+            <p className="drive-copy">
+              I'm always interested in meaningful problems,
+              thoughtful people, and opportunities to turn good ideas
+              into things that work in the real world.
+            </p>
+          </section>
 
-        <section className="contact" data-section>
-          <p className="eyebrow">Contact</p>
+          <section className={`contact ${activeSection === 5 ? "section-active" : ""}`} data-section>
+            <p className="eyebrow">Contact</p>
 
-          <h2>Interested in working together?</h2>
+            <h2>Interested in working together?</h2>
 
-          <p className="contact-copy">
-            Shoot me an email if you'd like to chat.
-          </p>
+            <p className="contact-copy">
+              Shoot me an email if you'd like to chat.
+            </p>
 
-          <a
-            href="mailto:muaaz1501@gmail.com"
-            className="email-link"
-          >
-            muaaz1501@gmail.com
-          </a>
-        </section>
+            <a
+              href="mailto:muaaz1501@gmail.com"
+              className="email-link"
+            >
+              muaaz1501@gmail.com
+            </a>
+          </section>
       </div>
     </div>
   );

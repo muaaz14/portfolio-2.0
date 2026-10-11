@@ -55,7 +55,7 @@
   width: 100%;
   min-width: 0;
   min-height: 0;
-  padding: 24px;
+  /* padding: 24px; */
 
   display: flex;
   flex-direction: column;
@@ -69,7 +69,7 @@
   align-items: center;
   
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
   overscroll-behavior-y: contain;
 }
 
@@ -191,6 +191,7 @@
   gap: 48px;
   width: 100%;
   align-items: center;
+  background-color: #fff;
 }
 
 .approach-heading-container {
@@ -242,7 +243,7 @@
   align-items: flex-start;
   text-align: left;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #f4f5f6;
 }
 
 .approach-card:hover {
@@ -473,8 +474,10 @@
   max-width: 100%;
   display: flex;
   flex-direction: column;
+  flex: 1;
   align-items: center;
-  width: 80%;
+  width: 100%;
+  background-color: #fff;
 }
 
 .ai-heading {
@@ -529,10 +532,12 @@
 /*=====================================================================*/
 
 .contact {
+  width: 100%;
   max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fff;
 }
 
 .contact h2 {
@@ -618,5 +623,32 @@
   .plane-skill,
   .plane-skill-tooltip {
     transition: none;
+  }
+}
+
+
+/* Section arrival animation — independent of section layout */
+.about-page > section.section-active {
+  animation: section-arrive 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: top center;
+}
+
+@keyframes section-arrive {
+  0% {
+    transform: scaleY(0.985);
+  }
+
+  55% {
+    transform: scaleY(1.008);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page > section.section-active {
+    animation: none;
   }
 }

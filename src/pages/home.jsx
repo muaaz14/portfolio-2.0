@@ -42,7 +42,7 @@ function PortfolioTrain({ containerRef, speedRef }) {
 
     const spacing = () => tileSize * 1.45;
     // const cycleLength = 21.1;
-    const stopDuration = 7;
+    const stopDuration = 4;
     const enterDuration = 6;
     const exitStart = enterDuration + stopDuration;
     const exitDuration = 6;
@@ -438,7 +438,7 @@ function PortfolioTrain({ containerRef, speedRef }) {
       const tileY = -T * 1.15;
       const radius = T * 0.24;
 
-      ctx.shadowColor = "rgba(28, 23, 20, 0.2)";
+      ctx.shadowColor = "rgba(28, 23, 20, 0.3)";
       ctx.shadowBlur = T * 0.14;
       ctx.shadowOffsetY = T * 0.07;
 
